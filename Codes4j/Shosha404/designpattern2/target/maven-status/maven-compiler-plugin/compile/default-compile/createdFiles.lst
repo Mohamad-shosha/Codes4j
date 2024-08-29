@@ -1,0 +1,13 @@
+com\shosha\springboot\demo\factorypattern\util\EnumCouch.class
+com\shosha\springboot\demo\factorypattern\dao\BasketballCouch.class
+com\shosha\springboot\demo\factorypattern\dao\FootballCouch.class
+com\shosha\springboot\demo\factorypattern\couchfactory\CouchFactory.class
+com\shosha\springboot\demo\delegationpattern\delegated\BasketballCouch.class
+com\shosha\springboot\demo\Main.class
+com\shosha\springboot\demo\delegationpattern\delegated\FootballCouch.class
+com\shosha\springboot\demo\factorypattern\dao\Couch.class
+com\shosha\springboot\demo\factorypattern\util\Utilities.class
+com\shosha\springboot\demo\delegationpattern\delegator\Couch.class
+com\shosha\springboot\demo\delegationpattern\CouchHandler.class
+com\shosha\springboot\demo\factorypattern\dao\BaseballCouch.class
+com\shosha\springboot\demo\delegationpattern\delegated\BaseballCouch.class
