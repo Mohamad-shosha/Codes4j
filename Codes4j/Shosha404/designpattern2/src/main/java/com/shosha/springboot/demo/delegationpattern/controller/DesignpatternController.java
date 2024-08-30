@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DesignpatternController {
     @GetMapping
     public void getDailyWork(){
-        CouchFactory.getCouch("Fotballcouch");
+        CouchFactory.getCouchFromString("Fotballcouch");
     }
 }

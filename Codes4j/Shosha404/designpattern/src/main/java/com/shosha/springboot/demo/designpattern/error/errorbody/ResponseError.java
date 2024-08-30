@@ -1,13 +1,7 @@
 package com.shosha.springboot.demo.designpattern.error.errorbody;
 
 
-import lombok.Value;
 import java.sql.Timestamp;
-@Value
-public class ResponseError {
-    int code;
-    String massage;
-    String description;
-    Timestamp currentTime;
 
+public record ResponseError(int code, String massage, String description, Timestamp currentTime) {
 }
