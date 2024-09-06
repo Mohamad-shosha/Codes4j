@@ -5,6 +5,7 @@ import com.shosha.springboot.demo.factorypattern.dao.BasketballCouch;
 import com.shosha.springboot.demo.factorypattern.dao.Couch;
 import com.shosha.springboot.demo.factorypattern.dao.FootballCouch;
 import com.shosha.springboot.demo.factorypattern.error.exception.NotFoundCouchException;
+import com.shosha.springboot.demo.factorypattern.util.EnumCouch;
 
 import static com.shosha.springboot.demo.factorypattern.util.EnumCouch.*;
 
@@ -42,6 +43,19 @@ public class CouchFactory {
         else {
             throw new NotFoundCouchException("No found the couch in factory");
         }
+    }
+
+
+    public static EnumCouch getEnumFromString(String typeOfCouch) {
+        String uppercaseInput = typeOfCouch.toUpperCase();
+        for (EnumCouch couch : EnumCouch.values()) {
+            if (couch.toString().equals(uppercaseInput) ||
+                    (couch.getCode() != null && couch.getCode().equals(uppercaseInput))) {
+                return couch;
+            }
+        }
+
+        throw new NotFoundCouchException("Couch not found in factory: " + typeOfCouch);
     }
 
 }

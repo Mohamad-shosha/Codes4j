@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="functionprogramming" />
         <module name="designpattern" />
+        <module name="spring-jpa" />
+        <module name="functionprogramming" />
         <module name="designpattern2" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="designpattern" options="-parameters" />
       <module name="designpattern2" options="-parameters" />
       <module name="functionprogramming" options="-parameters" />
+      <module name="spring-jpa" options="-parameters" />
     </option>
   </component>
 </project>

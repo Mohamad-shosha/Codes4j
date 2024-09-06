@@ -6,4 +6,9 @@ public class BaseballCouch implements Couch {
     public String getDailyWork() {
         return "play baseball 4 times in month";
     }
+
+    @Override
+    public String getCouchName() {
+        return "Baseball";
+    }
 }

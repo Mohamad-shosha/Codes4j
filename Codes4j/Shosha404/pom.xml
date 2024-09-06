@@ -17,6 +17,7 @@
         <module>designpattern</module>
         <module>designpattern2</module>
         <module>functionprogramming</module>
+        <module>spring-jpa</module>
     </modules>
 
     <properties>

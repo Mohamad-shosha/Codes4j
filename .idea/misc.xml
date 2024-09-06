@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Codes4j/Shosha404/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/Codes4j/Shosha404/spring-jpa/pom.xml" />
       </list>
     </option>
   </component>
