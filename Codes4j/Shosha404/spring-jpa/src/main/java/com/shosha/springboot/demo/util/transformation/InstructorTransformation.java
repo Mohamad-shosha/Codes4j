@@ -7,15 +7,20 @@ import com.shosha.springboot.demo.model.entity.Instructor;
 import com.shosha.springboot.demo.util.randomids.RandomValues;
 
 public class InstructorTransformation {
-    public static InstructorDto transformToStudentDto(Instructor instructor) {
-        InstructorDto.InstructorDtoBuilder instructorDtoBuilder = InstructorDto.builder();
-        instructorDtoBuilder.firstName(instructor.getFirstName())
+
+    private InstructorTransformation() {
+
+    }
+
+    public static InstructorDto transformToInstructorDto(Instructor instructor) {
+        InstructorDto.InstructorDtoBuilder builder = InstructorDto.builder();
+        builder.firstName(instructor.getFirstName())
                 .lastName(instructor.getLastName())
                 .email(instructor.getEmail())
                 .birthDate(instructor.getBirthDate())
                 .address(AddressTransformation.transformToAddressDto(instructor.getAddress()))
                 .course(CourseTransformation.transformToCourseDto(instructor.getCourse()));
-        return InstructorDto.builder().build();
+        return builder.build();
     }
 
     public static Instructor transformToStudent(InstructorDto instructorDto) {

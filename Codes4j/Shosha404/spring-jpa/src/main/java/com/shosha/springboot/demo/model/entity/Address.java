@@ -1,15 +1,19 @@
 package com.shosha.springboot.demo.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "address")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
     @Id
     @Column(name = "address_id")
@@ -23,7 +27,7 @@ public class Address {
     private String state;
 
     @Column(name = "postal_code")
-    private String postalCode;
+    private String zipCode;
 
     private String country;
 

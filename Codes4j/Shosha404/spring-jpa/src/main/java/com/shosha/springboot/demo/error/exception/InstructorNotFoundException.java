@@ -4,20 +4,18 @@ import com.shosha.springboot.demo.util.time.CurrentTimeStamp;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Timestamp;
 
 @EqualsAndHashCode(callSuper = true)
 @Value
-public class SqlConstraintException extends SQLIntegrityConstraintViolationException {
-    public Integer code = 967;
-    public String errorMassage = "SQL Constraint Exception";
+public class InstructorNotFoundException extends RuntimeException {
+    public Integer code = 657;
+    public String message = "Instructor not found";
     public String description;
     public Timestamp timestamp;
 
-    public SqlConstraintException(String message) {
+    public InstructorNotFoundException(String message) {
         this.description = message;
         this.timestamp = CurrentTimeStamp.timestamp();
     }
-
 }

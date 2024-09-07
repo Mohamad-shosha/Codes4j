@@ -2,15 +2,12 @@ package com.shosha.springboot.demo.controller;
 
 import com.shosha.springboot.demo.dao.addressrepository.AddressRepository;
 import com.shosha.springboot.demo.dao.courserepository.CourseRepository;
+import com.shosha.springboot.demo.error.exception.InstructorNotFoundException;
 import com.shosha.springboot.demo.error.exception.SqlConstraintException;
+import com.shosha.springboot.demo.model.dto.AddressDto;
 import com.shosha.springboot.demo.model.dto.InstructorDto;
-import com.shosha.springboot.demo.model.entity.Instructor;
 import com.shosha.springboot.demo.service.InstructorService;
-import com.shosha.springboot.demo.util.transformation.InstructorTransformation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +15,8 @@ import java.util.List;
 public class StudentController {
     private final InstructorService instructorService;
 
-    public StudentController(InstructorService instructorService, AddressRepository addressRepository, CourseRepository courseRepository) {
+    public StudentController(InstructorService instructorService,
+                             AddressRepository addressRepository, CourseRepository courseRepository) {
         this.instructorService = instructorService;
     }
 
@@ -29,7 +27,43 @@ public class StudentController {
 
     @GetMapping("GetStudents")
     public List<InstructorDto> getStudents() {
-        List<Instructor> instructors = instructorService.findAll();
-        return instructors.stream().map(InstructorTransformation::transformToStudentDto).toList();
+        return instructorService.findAll();
     }
+
+    @GetMapping("GetInstructorByFirstName/{firstName}")
+    public List<InstructorDto> getInstructorByFirstName(@PathVariable String firstName) {
+        return instructorService.findAllByFirstName(firstName);
+    }
+
+    @PutMapping("UpdateInstructor/{id}")
+    public void updateInstructor(@RequestBody InstructorDto instructorDto,
+                                 @PathVariable String id) throws InstructorNotFoundException {
+        instructorService.update(instructorDto, id);
+    }
+
+    @GetMapping("GetInstructor/{id}")
+    public InstructorDto getInstructor(@PathVariable String id) {
+        return instructorService.getInstructorDtoById(id);
+    }
+
+    @GetMapping("GetId/{email}")
+    public String getIdOfTheInstructor(@PathVariable String email) {
+        return instructorService.findIdByEmail(email);
+    }
+
+    @GetMapping("GetCourseCode/{email}")
+    public String getCourseCodeOfTheInstructor(@PathVariable String email) {
+        return instructorService.findCourseCodeByEmail(email);
+    }
+
+    @GetMapping("GetAddress/{email}")
+    public AddressDto getAddressOfTheInstructor(@PathVariable String email) {
+        return instructorService.findAddressByEmail(email);
+    }
+
+    @DeleteMapping("DeleteInstructor/{id}")
+    public void deleteInstructorById(@PathVariable String id) {
+        instructorService.delete(id);
+    }
+
 }

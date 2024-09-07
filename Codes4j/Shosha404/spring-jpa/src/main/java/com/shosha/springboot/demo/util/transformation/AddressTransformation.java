@@ -14,19 +14,19 @@ public class AddressTransformation {
         addressDto.setStreet(address.getStreet());
         addressDto.setCity(address.getCity());
         addressDto.setState(address.getState());
-        addressDto.setZip(address.getPostalCode());
+        addressDto.setZip(address.getZipCode());
         addressDto.setCountry(address.getCountry());
         return addressDto;
     }
 
     public static Address transformToAddress(AddressDto addressDto) {
-        Address address = new Address();
-        address.setId(RandomValues.randomNumbersForId());
-        address.setStreet(addressDto.getStreet());
-        address.setCity(addressDto.getCity());
-        address.setState(addressDto.getState());
-        address.setPostalCode(addressDto.getZip());
-        address.setCountry(addressDto.getCountry());
-        return address;
+        Address.AddressBuilder builder = Address.builder();
+        builder.id(RandomValues.randomNumbersForId())
+                .street(addressDto.getStreet())
+                .city(addressDto.getCity())
+                .state(addressDto.getState())
+                .zipCode(addressDto.getZip())
+                .country(addressDto.getCountry());
+        return builder.build();
     }
 }

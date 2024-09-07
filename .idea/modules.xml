@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Codes4j.iml" filepath="$PROJECT_DIR$/.idea/Codes4j.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Codes4j/Shosha404/spring-jpa/spring-jpa.iml" filepath="$PROJECT_DIR$/Codes4j/Shosha404/spring-jpa/spring-jpa.iml" />
     </modules>
   </component>
 </project>
