@@ -7,13 +7,13 @@ import lombok.Value;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Timestamp;
 
-@EqualsAndHashCode(callSuper = true)
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class SqlConstraintException extends SQLIntegrityConstraintViolationException {
-    public Integer code = 967;
-    public String errorMassage = "SQL Constraint Exception";
-    public String description;
-    public Timestamp timestamp;
+    Integer code = 967;
+    String errorMassage = "SQL Constraint Exception";
+    String description;
+    Timestamp timestamp;
 
     public SqlConstraintException(String message) {
         this.description = message;

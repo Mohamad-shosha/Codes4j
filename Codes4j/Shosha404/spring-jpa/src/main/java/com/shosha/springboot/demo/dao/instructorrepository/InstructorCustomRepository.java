@@ -6,4 +6,6 @@ public interface InstructorCustomRepository {
     String getIdByEmail(String email);
 
     String getCourseCodeByEmail(String email);
+
+    Address getAddressByEmail(String email);
 }

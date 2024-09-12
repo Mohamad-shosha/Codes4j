@@ -6,13 +6,13 @@ import lombok.Value;
 
 import java.sql.Timestamp;
 
-@EqualsAndHashCode(callSuper = true)
 @Value
+@EqualsAndHashCode(callSuper = true)
 public class InstructorNotFoundException extends RuntimeException {
-    public Integer code = 657;
-    public String message = "Instructor not found";
-    public String description;
-    public Timestamp timestamp;
+    Integer code = 657;
+    String message = "Instructor not found";
+    String description;
+    Timestamp timestamp;
 
     public InstructorNotFoundException(String message) {
         this.description = message;
