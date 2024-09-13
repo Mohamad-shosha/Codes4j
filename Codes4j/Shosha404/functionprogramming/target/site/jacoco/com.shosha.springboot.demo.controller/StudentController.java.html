@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StudentController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">functionprogramming</a> &gt; <a href="index.source.html" class="el_package">com.shosha.springboot.demo.controller</a> &gt; <span class="el_source">StudentController.java</span></div><h1>StudentController.java</h1><pre class="source lang-java linenums">package com.shosha.springboot.demo.controller;
+
+import com.shosha.springboot.demo.student.Student;
+import com.shosha.springboot.demo.student.StudentProcessFunctions;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(&quot;Student&quot;)
+<span class="nc" id="L9">public class StudentController {</span>
+    @GetMapping(&quot;FullName&quot;)
+    public String getStudentName(@RequestBody Student student) {
+<span class="nc" id="L12">        String firstName = student.getFirstName();</span>
+<span class="nc" id="L13">        String lastName = student.getLastName();</span>
+<span class="nc" id="L14">        return StudentProcessFunctions.getStudentFullName(student::getFullName,firstName,lastName);</span>
+    }
+    @GetMapping(&quot;GetEmail&quot;)
+    public String getStudentEmail(@RequestBody Student student) {
+<span class="nc" id="L18">        return student.getEmail();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

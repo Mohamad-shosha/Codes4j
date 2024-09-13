@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 import static com.shosha.springboot.demo.calculator.Calculator.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CalculatorTest {
 
     @BeforeAll
@@ -30,6 +31,8 @@ public class CalculatorTest {
     }
 
     @Test
+    @Order(1)
+    @DisplayName("Test Addition")
     public void testAddition() {
         System.out.println("Running equals and not equals method");
         Integer result = 20;
@@ -38,6 +41,8 @@ public class CalculatorTest {
     }
 
     @Test
+    @Order(3)
+    @DisplayName("Test Subtraction")
     public void testSubtraction() {
         System.out.println("Running equals and not equals method");
         Integer result = 10;
@@ -46,6 +51,8 @@ public class CalculatorTest {
     }
 
     @Test
+    @Order(4)
+    @DisplayName("Test Multiplication")
     public void testMultiplication() {
         System.out.println("Running equals and not equals method");
         Integer result = 20;
@@ -53,9 +60,11 @@ public class CalculatorTest {
     }
 
     @Test
+    @Order(2)
+    @DisplayName("Test Division")
     public void testDivision() {
         System.out.println("Running equals and not equals method");
-        Float result = 5f;
+        Float result = 4f;
         Assertions.assertEquals(result,divide(10,2), "result must be 20");
     }
 
