@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="snapshotDbValue" value="ca958d33-9327-4633-bb38-6de901ce50d2" />
+    <option name="sourceModelValue" value="spring-jpa:entityManagerFactory" />
+    <option name="targetDbValue" value="ca958d33-9327-4633-bb38-6de901ce50d2" />
+  </component>
+</project>

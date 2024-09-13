@@ -21,9 +21,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InstructorNotFoundException.class)
     public ResponseEntity<ErrorBody> handleInstructorNotFoundException(InstructorNotFoundException instructorNotFoundException) {
-        ErrorBody errorBody = new ErrorBody(instructorNotFoundException.code,
-                instructorNotFoundException.message,
-                instructorNotFoundException.description,
+        ErrorBody errorBody = new ErrorBody(instructorNotFoundException.getCode(),
+                instructorNotFoundException.getMessage(),
+                instructorNotFoundException.getDescription(),
                 instructorNotFoundException.getTimestamp()
                 );
         return new ResponseEntity<>(errorBody, HttpStatus.NOT_FOUND);

@@ -1,28 +1,32 @@
 package com.shosha.springboot.demo.model.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Builder
-@Table(name = "instructors")
+@Table(name = "instructor")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Instructor {
     @Id
-    @Column(name = "instructor_id")
+    @Column(name = "instructor_id", nullable = false)
     private String id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", nullable = false)
     private String birthDate;
 
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "address_id")

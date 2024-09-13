@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.shosha.springboot.demo.unitfunctions.UnitFunctionsTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.019 s - in com.shosha.springboot.demo.unitfunctions.UnitFunctionsTest

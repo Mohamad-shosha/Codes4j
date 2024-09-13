@@ -16,19 +16,22 @@ import java.util.List;
 @NoArgsConstructor
 public class Address {
     @Id
-    @Column(name = "address_id")
+    @Column(name = "address_id", nullable = false)
     private String id;
 
-    @Column(name = "street_address")
+    @Column(name = "street_address", nullable = false)
     private String street;
 
+    @Column(name = "city", nullable = false)
     private String city;
 
+    @Column(name = "state", nullable = false)
     private String state;
 
-    @Column(name = "postal_code")
+    @Column(name = "postal_code", nullable = false)
     private String zipCode;
 
+    @Column(name = "country", nullable = false)
     private String country;
 
     @OneToMany(mappedBy = "address")
