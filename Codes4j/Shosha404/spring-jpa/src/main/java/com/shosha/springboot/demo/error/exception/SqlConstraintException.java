@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode(callSuper = true)
 public class SqlConstraintException extends SQLIntegrityConstraintViolationException {
     Integer code = 967;
-    String errorMassage = "SQL Constraint Exception";
+    String errorMassage = "SQL Exception";
     String description;
     Timestamp timestamp;
 

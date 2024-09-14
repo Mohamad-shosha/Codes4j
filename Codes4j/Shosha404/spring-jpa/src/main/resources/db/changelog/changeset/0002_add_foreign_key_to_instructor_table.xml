@@ -6,7 +6,7 @@
 
     <changeSet id="Add_foreign_key_address_id" author="mohamed shosha">
         <addColumn tableName="instructor">
-            <column name="address_id" type="varchar(255)"/>
+            <column name="address_id" type="uuid"/>
         </addColumn>
         <addForeignKeyConstraint baseTableName="instructor" baseColumnNames="address_id"
                                  constraintName="foreign_key_instructor_address_id"

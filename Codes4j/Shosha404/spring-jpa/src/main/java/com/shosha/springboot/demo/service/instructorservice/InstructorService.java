@@ -1,10 +1,9 @@
-package com.shosha.springboot.demo.service;
+package com.shosha.springboot.demo.service.instructorservice;
 
 import com.shosha.springboot.demo.error.exception.InstructorNotFoundException;
 import com.shosha.springboot.demo.error.exception.SqlConstraintException;
 import com.shosha.springboot.demo.model.dto.AddressDto;
 import com.shosha.springboot.demo.model.dto.InstructorDto;
-import com.shosha.springboot.demo.model.entity.Address;
 import com.shosha.springboot.demo.model.entity.Instructor;
 
 import java.util.List;

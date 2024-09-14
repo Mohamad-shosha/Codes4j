@@ -1,8 +1,7 @@
 package com.shosha.springboot.demo.error;
 
 import com.shosha.springboot.demo.error.body.ErrorBody;
-import com.shosha.springboot.demo.error.exception.InstructorNotFoundException;
-import com.shosha.springboot.demo.error.exception.SqlConstraintException;
+import com.shosha.springboot.demo.error.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,5 +26,14 @@ public class GlobalExceptionHandler {
                 instructorNotFoundException.getTimestamp()
                 );
         return new ResponseEntity<>(errorBody, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({RollbackException.class})
+    public ResponseEntity<ErrorBody> handleRollbackException(RollbackException rollbackException) {
+        ErrorBody errorBody = new ErrorBody(rollbackException.getCode(),
+                rollbackException.getMessage(),
+                rollbackException.getDescription(),
+                rollbackException.getTimestamp());
+        return new ResponseEntity<>(errorBody, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

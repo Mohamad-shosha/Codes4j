@@ -1,4 +1,4 @@
-package com.shosha.springboot.demo.controller;
+package com.shosha.springboot.demo.controller.instructorcontroller;
 
 import com.shosha.springboot.demo.dao.addressrepository.AddressRepository;
 import com.shosha.springboot.demo.dao.courserepository.CourseRepository;
@@ -6,17 +6,17 @@ import com.shosha.springboot.demo.error.exception.InstructorNotFoundException;
 import com.shosha.springboot.demo.error.exception.SqlConstraintException;
 import com.shosha.springboot.demo.model.dto.AddressDto;
 import com.shosha.springboot.demo.model.dto.InstructorDto;
-import com.shosha.springboot.demo.service.InstructorService;
+import com.shosha.springboot.demo.service.instructorservice.InstructorService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class StudentController {
+public class InstructorController {
     private final InstructorService instructorService;
 
-    public StudentController(InstructorService instructorService,
-                             AddressRepository addressRepository, CourseRepository courseRepository) {
+    public InstructorController(InstructorService instructorService,
+                                AddressRepository addressRepository, CourseRepository courseRepository) {
         this.instructorService = instructorService;
     }
 

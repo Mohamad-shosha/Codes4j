@@ -1,4 +1,4 @@
-package com.shosha.springboot.demo.service;
+package com.shosha.springboot.demo.service.instructorservice;
 
 import com.shosha.springboot.demo.dao.courserepository.CourseRepository;
 import com.shosha.springboot.demo.dao.instructorrepository.InstructorRepository;
@@ -30,12 +30,14 @@ public class InstructorServiceImp implements InstructorService {
     @Override
     public List<InstructorDto> findAll() {
         List<Instructor> instructors = instructorRepository.findAll();
+        log.info("The list of instructors is {}", instructors);
         return instructors.stream().map(InstructorTransformation::transformToInstructorDto).toList();
     }
 
     @Override
     public List<InstructorDto> findAllByFirstName(String firstName) {
         List<Instructor> instructors = instructorRepository.findAllByFirstName(firstName);
+        log.info("The list of instructors is {}, where first name is {}", instructors, firstName);
         return instructors.stream().map(InstructorTransformation::transformToInstructorDto).toList();
     }
 
@@ -43,8 +45,10 @@ public class InstructorServiceImp implements InstructorService {
     public Instructor findById(String id) {
         Optional<Instructor> instructor = instructorRepository.findById(id);
         if (!instructor.isPresent()) {
+            log.error("Could not find instructor with id {}", id);
             throw new InstructorNotFoundException("Instructor not found with id : " + id);
         } else {
+            log.info("The instructor is {}, with is {}", instructor.get(), instructor.get().getId());
             return instructor.get();
         }
     }
@@ -56,20 +60,26 @@ public class InstructorServiceImp implements InstructorService {
 
     @Override
     public String findIdByEmail(String email) throws InstructorNotFoundException {
-        return instructorRepository.getIdByEmail(email);
+        String id = instructorRepository.getIdByEmail(email);
+        log.info("The id is {},Where email is {}", id, email);
+        return id;
     }
 
     @Override
     public String findCourseCodeByEmail(String email) throws InstructorNotFoundException {
-        return instructorRepository.getCourseCodeByEmail(email);
+        String codeOfCourse = instructorRepository.getCourseCodeByEmail(email);
+        log.info("The code is {},Where email is {}", codeOfCourse, email);
+        return codeOfCourse;
     }
 
     @Override
     public Optional<Instructor> findInstructorByEmail(String email) throws InstructorNotFoundException {
         Optional<Instructor> instructor = instructorRepository.findByEmail(email);
         if (!instructor.isPresent()) {
+            log.error("Instructor not found with email {}", email);
             throw new InstructorNotFoundException("Instructor not found with email : " + email);
         } else {
+            log.info("The instructor is {},Where email is {}", instructor.get(), email);
             return instructor;
         }
     }
@@ -86,9 +96,9 @@ public class InstructorServiceImp implements InstructorService {
                     instructorDto.getCourse().getCode());
             throw new SqlConstraintException("Duplicate data entry doesn't allowed");
         }
+        log.info("Saving new instructor {}", instructor);
         instructorRepository.save(instructor);
     }
-
 
     @Override
     public void update(InstructorDto instructorDto, String id) throws InstructorNotFoundException {
@@ -101,8 +111,10 @@ public class InstructorServiceImp implements InstructorService {
             updatedInstructor.setBirthDate(instructorDto.getBirthDate());
             updatedInstructor.setAddress(updatedInstructor.getAddress());
             updatedInstructor.setCourse(updatedInstructor.getCourse());
+            log.info("Updating instructor {}", updatedInstructor);
             instructorRepository.save(updatedInstructor);
         } else {
+            log.error("Could not find instructor to update with id {}", id);
             throw new InstructorNotFoundException("Instructor not found with id : " + id);
         }
 
@@ -111,10 +123,12 @@ public class InstructorServiceImp implements InstructorService {
     @Override
     public void delete(String id) throws InstructorNotFoundException {
         Optional<Instructor> instructor = instructorRepository.findById(id);
-        if (instructor.isPresent()) {
-            instructorRepository.delete(instructor.get());
-        } else {
+        if (!instructor.isPresent()) {
+            log.error("Could not find instructor to delete with id {}", id);
             throw new InstructorNotFoundException("Instructor not found with id : " + id);
+        } else {
+            log.info("Deleting instructor {}", instructor.get());
+            instructorRepository.delete(instructor.get());
         }
 
     }
@@ -123,8 +137,11 @@ public class InstructorServiceImp implements InstructorService {
     public AddressDto findAddressByEmail(String email) throws InstructorNotFoundException {
         Optional<Instructor> instructor = instructorRepository.findByEmail(email);
         if (!instructor.isPresent()) {
+            log.error("Could not find instructor with email {}", email);
             throw new InstructorNotFoundException("Instructor not found with email : " + email);
         }
+        log.info("Found address of the instructor {} whose address is {}", instructor.get(),
+                instructor.get().getAddress());
         return InstructorTransformation.transformToInstructorDto(instructor.get()).getAddress();
     }
 
