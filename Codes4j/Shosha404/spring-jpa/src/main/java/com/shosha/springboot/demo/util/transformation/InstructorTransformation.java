@@ -6,12 +6,22 @@ import com.shosha.springboot.demo.model.entity.Course;
 import com.shosha.springboot.demo.model.entity.Instructor;
 import com.shosha.springboot.demo.util.randomids.RandomValues;
 
+/**
+ * The InstructorTransformation class provides static methods
+ * to transform Instructor entities to InstructorDto objects and vice versa.
+ */
 public class InstructorTransformation {
 
     private InstructorTransformation() {
 
     }
 
+    /**
+     * Transforms an Instructor entity into an InstructorDto.
+     *
+     * @param instructor the Instructor entity to be transformed
+     * @return the transformed InstructorDto
+     */
     public static InstructorDto transformToInstructorDto(Instructor instructor) {
         InstructorDto.InstructorDtoBuilder builder = InstructorDto.builder();
         builder.firstName(instructor.getFirstName())
@@ -23,6 +33,12 @@ public class InstructorTransformation {
         return builder.build();
     }
 
+    /**
+     * Transforms an InstructorDto object to an Instructor entity.
+     *
+     * @param instructorDto the InstructorDto object to be transformed
+     * @return the transformed Instructor entity
+     */
     public static Instructor transformToStudent(InstructorDto instructorDto) {
         Instructor.InstructorBuilder instructorBuilder = Instructor.builder();
         instructorBuilder.id(RandomValues.randomNumbersForId())

@@ -36,4 +36,14 @@ public class InstructorCustomRepositoryImpl implements InstructorCustomRepositor
         query.setParameter("email", email);
         return (Address) query.getSingleResult();
     }
+
+    @Override
+    public Address getAddressByCourseName(String courseName) {
+        String jpql = "SELECT A FROM Address A WHERE A.id = (SELECT I.addressId " +
+                "FROM Instructor I JOIN Course C ON I.courseId = C.id WHERE C.name = :courseName)";
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("courseName", courseName);
+        return (Address) query.getSingleResult();
+    }
+    
 }

@@ -1,6 +1,7 @@
-package com.shosha.springboot.demo.unitfunctions;
+package com.shosha.springboot.demo.util;
 
 public class UnitFunctions {
+
     public static Integer checkNumber(int number) {
         if (number < 0) {
             throw new NumberFormatException();
@@ -8,6 +9,7 @@ public class UnitFunctions {
             return number;
         }
     }
+
     public static String checkTimeOut() throws InterruptedException {
         Thread.sleep(2000);
         return "He is sleep now";

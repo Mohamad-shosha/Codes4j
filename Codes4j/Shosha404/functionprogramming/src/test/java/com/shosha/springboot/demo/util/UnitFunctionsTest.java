@@ -1,14 +1,14 @@
-package com.shosha.springboot.demo.unitfunctions;
+package com.shosha.springboot.demo.util;
 
 import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
-import static com.shosha.springboot.demo.unitfunctions.UnitFunctions.checkNumber;
-import static com.shosha.springboot.demo.unitfunctions.UnitFunctions.checkTimeOut;
+import static com.shosha.springboot.demo.util.UnitFunctions.checkNumber;
+import static com.shosha.springboot.demo.util.UnitFunctions.checkTimeOut;
 
-@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
 public class UnitFunctionsTest {
     @BeforeAll
     public static void setUpBeforeClass() {
