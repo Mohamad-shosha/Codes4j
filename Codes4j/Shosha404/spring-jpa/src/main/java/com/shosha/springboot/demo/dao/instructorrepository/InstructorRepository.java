@@ -38,4 +38,6 @@ public interface InstructorRepository extends JpaRepository<Instructor, String>,
      * @return an Optional containing the found Instructor, or an empty Optional if no instructor is found
      */
     Optional<Instructor> findByEmail(String email);
+
+    Optional<Instructor> findByCourseName(String courseName);
 }

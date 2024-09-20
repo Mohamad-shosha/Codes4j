@@ -36,4 +36,17 @@ public class Address {
 
     @OneToMany(mappedBy = "address")
     private List<Instructor> instructors;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id='" + id + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", country='" + country + '\'' +
+                ", instructors=" + (instructors != null ? instructors.size() : "null") +
+                '}';
+    }
 }

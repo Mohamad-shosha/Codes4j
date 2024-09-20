@@ -1,6 +1,7 @@
 package com.shosha.springboot.demo.dao.instructorrepository;
 
 import com.shosha.springboot.demo.model.entity.Address;
+import com.shosha.springboot.demo.model.entity.Instructor;
 
 /**
  * The InstructorCustomRepository interface provides custom methods for querying
@@ -41,4 +42,12 @@ public interface InstructorCustomRepository {
      * or null if no address is found for that course name
      */
     Address getAddressByCourseName(String courseName);
+
+    /**
+     * Retrieves the address associated with the given instructor.
+     *
+     * @param instructor the instructor whose address needs to be retrieved
+     * @return the address of the instructor, or null if no address is found
+     */
+    Address getAddressFromInstructor(Instructor instructor);
 }

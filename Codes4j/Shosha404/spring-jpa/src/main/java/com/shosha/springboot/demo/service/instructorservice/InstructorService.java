@@ -109,4 +109,5 @@ public interface InstructorService {
      */
     void delete(String id) throws InstructorNotFoundException;
 
+    AddressDto findAddressByCourseName(String courseName) throws InstructorNotFoundException;
 }

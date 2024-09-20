@@ -20,12 +20,12 @@ public class InstructorController {
         this.instructorService = instructorService;
     }
 
-    @PostMapping("SaveStudent")
+    @PostMapping("SaveInstructor")
     public void saveStudent(@RequestBody InstructorDto instructorDto) throws SqlConstraintException {
         instructorService.save(instructorDto);
     }
 
-    @GetMapping("GetStudents")
+    @GetMapping("GetInstructors")
     public List<InstructorDto> getStudents() {
         return instructorService.findAll();
     }
@@ -46,10 +46,10 @@ public class InstructorController {
         return instructorService.getInstructorDtoById(id);
     }
 
-    @GetMapping("GetId/{email}")
+/*    @GetMapping("GetId/{email}")
     public String getIdOfTheInstructor(@PathVariable String email) {
         return instructorService.findIdByEmail(email);
-    }
+    }*/
 
     @GetMapping("GetCourseCode/{email}")
     public String getCourseCodeOfTheInstructor(@PathVariable String email) {
@@ -64,6 +64,11 @@ public class InstructorController {
     @DeleteMapping("DeleteInstructor/{id}")
     public void deleteInstructorById(@PathVariable String id) {
         instructorService.delete(id);
+    }
+
+    @GetMapping("GetAddressByCourseName/{courseName}")
+    public AddressDto getAddressByCourseName(@PathVariable String courseName) {
+        return instructorService.findAddressByCourseName(courseName);
     }
 
 }

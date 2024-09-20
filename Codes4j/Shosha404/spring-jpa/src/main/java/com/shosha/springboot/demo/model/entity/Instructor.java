@@ -43,4 +43,17 @@ public class Instructor {
     @JoinColumn(name = "course_id", insertable = false, updatable = false)
     private Course course;
 
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", email='" + email + '\'' +
+                ", addressId='" + addressId + '\'' +
+                ", courseId='" + courseId + '\'' +
+                '}';
+    }
+
 }

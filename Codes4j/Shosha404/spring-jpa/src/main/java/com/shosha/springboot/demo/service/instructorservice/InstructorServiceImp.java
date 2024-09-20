@@ -7,6 +7,7 @@ import com.shosha.springboot.demo.error.exception.SqlConstraintException;
 import com.shosha.springboot.demo.model.dto.AddressDto;
 import com.shosha.springboot.demo.model.dto.InstructorDto;
 import com.shosha.springboot.demo.model.entity.Instructor;
+import com.shosha.springboot.demo.util.transformation.AddressTransformation;
 import com.shosha.springboot.demo.util.transformation.InstructorTransformation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,8 +143,16 @@ public class InstructorServiceImp implements InstructorService {
         }
         log.info("Found address of the instructor {} whose address is {}", instructor.get(),
                 instructor.get().getAddress());
-        return InstructorTransformation.transformToInstructorDto(instructor.get()).getAddress();
+        return AddressTransformation.transformToAddressDto(instructorRepository.getAddressByEmail(email));
     }
 
-
+    public AddressDto findAddressByCourseName(String courseName) {
+        Optional<Instructor> instructor = instructorRepository.findByCourseName(courseName);
+        if (!instructor.isPresent()) {
+            log.error("Could not find instructor with course name {}", courseName);
+            throw new InstructorNotFoundException("Instructor not found with course name : " + courseName);
+        }
+        return AddressTransformation.transformToAddressDto(instructorRepository.
+                getAddressByCourseName(courseName));
+    }
 }

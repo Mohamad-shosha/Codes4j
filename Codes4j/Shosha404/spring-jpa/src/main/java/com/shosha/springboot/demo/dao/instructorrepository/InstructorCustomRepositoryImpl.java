@@ -1,6 +1,7 @@
 package com.shosha.springboot.demo.dao.instructorrepository;
 
 import com.shosha.springboot.demo.model.entity.Address;
+import com.shosha.springboot.demo.model.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -26,6 +27,13 @@ public class InstructorCustomRepositoryImpl implements InstructorCustomRepositor
         query.setParameter("email", email);
         return (String) query.getSingleResult();
 
+    }
+
+    public Address getAddressFromInstructor(Instructor instructor) {
+        String jpql = "SELECT A FROM Address A WHERE A.id = :addressId";
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("addressId", instructor.getAddressId());
+        return (Address) query.getSingleResult();
     }
 
     @Override
