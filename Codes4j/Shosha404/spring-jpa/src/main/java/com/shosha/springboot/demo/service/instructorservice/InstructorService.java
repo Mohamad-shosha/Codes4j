@@ -102,12 +102,19 @@ public interface InstructorService {
     void update(InstructorDto instructorDto, String id) throws InstructorNotFoundException;
 
     /**
-     * Deletes an instructor by their unique identifier.
+     * Deletes the instructor with the specified unique identifier.
      *
-     * @param id the unique identifier of the instructor to be deleted
-     * @throws InstructorNotFoundException if no instructor is found with the given identifier
+     * @param id The unique identifier of the instructor to be deleted.
+     * @throws InstructorNotFoundException if no instructor is found with the given id.
      */
     void delete(String id) throws InstructorNotFoundException;
 
+    /**
+     * Finds the address information associated with the instructor of the given course name.
+     *
+     * @param courseName the name of the course for which the associated instructor's address is to be found
+     * @return the address information of the instructor as an AddressDto object
+     * @throws InstructorNotFoundException if no instructor is found for the provided course name
+     */
     AddressDto findAddressByCourseName(String courseName) throws InstructorNotFoundException;
 }

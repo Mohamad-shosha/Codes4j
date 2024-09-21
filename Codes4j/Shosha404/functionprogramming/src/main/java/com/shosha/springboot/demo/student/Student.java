@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 /**
- * Represents a student with personal details such as first name, last name, age, and email.
- * The {@code @Data} annotation generates getters and setters for all fields, a toString method, hashCode,
- * and equals methods.
- * The {@code @NoArgsConstructor} annotation generates a no-argument constructor.
- * The {@code @AllArgsConstructor} annotation generates a constructor with all fields as parameters.
+ * Represents a student with a first name, last name, age, and email address.
  */
 @Data
 @NoArgsConstructor
