@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Student.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">functionprogramming</a> &gt; <a href="index.source.html" class="el_package">com.shosha.springboot.demo.student</a> &gt; <span class="el_source">Student.java</span></div><h1>Student.java</h1><pre class="source lang-java linenums">package com.shosha.springboot.demo.student;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+/**
+ * Represents a student with a first name, last name, age, and email address.
+ */
+<span class="nc bnc" id="L11" title="All 32 branches missed.">@Data</span>
+<span class="nc" id="L12">@NoArgsConstructor</span>
+<span class="nc" id="L13">@AllArgsConstructor</span>
+public class Student {
+
+    /**
+     * The first name of the student.
+     */
+<span class="nc" id="L19">    private String firstName;</span>
+
+    /**
+     * The last name of the student.
+     */
+<span class="nc" id="L24">    private String lastName;</span>
+
+    /**
+     * The age of the student.
+     */
+<span class="nc" id="L29">    private int age;</span>
+
+    /**
+     * The email address of the student.
+     */
+<span class="nc" id="L34">    private String email;</span>
+
+    /**
+     * @param firstName The first name to be used in the full name.
+     * @param lastName  The last name to be used in the full name.
+     * @return A {@code String} representing the full name composed of the provided first and last names.
+     */
+    public String getFullName(String firstName, String lastName) {
+<span class="nc" id="L42">        return firstName + &quot; &quot; + lastName;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

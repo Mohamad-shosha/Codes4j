@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+functionprogramming,com.shosha.springboot.demo,Main,8,0,0,0,3,0,2,0,2,0
+functionprogramming,com.shosha.springboot.demo.util,FizzBuzz,0,24,0,8,0,7,0,5,0,1
+functionprogramming,com.shosha.springboot.demo.util,UnitFunctions,0,16,0,2,0,6,0,4,0,3
+functionprogramming,com.shosha.springboot.demo.controller,CalculatorController,98,0,0,0,17,0,7,0,7,0
+functionprogramming,com.shosha.springboot.demo.controller,StudentController,21,0,0,0,5,0,3,0,3,0
+functionprogramming,com.shosha.springboot.demo.calculator,ProcessFunctions,21,0,0,0,4,0,4,0,4,0
+functionprogramming,com.shosha.springboot.demo.calculator,Calculator,18,33,0,0,3,5,3,5,3,5
+functionprogramming,com.shosha.springboot.demo.student,Student,197,0,32,0,8,0,31,0,15,0
+functionprogramming,com.shosha.springboot.demo.student,StudentProcessFunctions,14,0,0,0,3,0,3,0,3,0

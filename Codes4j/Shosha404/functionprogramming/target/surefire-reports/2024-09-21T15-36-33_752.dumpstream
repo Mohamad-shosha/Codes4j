@@ -1,0 +1,4 @@
+# Created at 2024-09-21T15:36:34.439
+Boot Manifest-JAR contains absolute paths in classpath 'F:\Spring-diploma\Codes4j\Codes4j\Shosha404\functionprogramming\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+
